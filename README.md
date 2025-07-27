@@ -5,7 +5,7 @@ The official implementation of our ICCV 2025 paper, "Bring Your Rear Cameras for
 
 **For any questions, please contact the first author, Hiroyasu Akada [hakada@mpi-inf.mpg.de] .**
 
-Also, check [our project page](https://4dqv.mpi-inf.mpg.de/EgoRear/).
+[[Project Page]](https://4dqv.mpi-inf.mpg.de/EgoRear/) [[Paper]](https://arxiv.org/abs/2503.11652)
 
 # Citation
 
@@ -75,10 +75,10 @@ Our camera calibration file is also available [here](https://github.com/hiroyasu
 
 ## Dependencies 
 
-- Python 
-- Ubuntu 
+- Python 3.10
+- Ubuntu Debian GNU/Linux 12
 - PyTorch Lightning 2.4.0
-- Cuda
+- Cuda 11.8
 
   Please install other dependencies:
     

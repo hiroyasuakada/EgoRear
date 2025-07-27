@@ -1,0 +1,120 @@
+seed_everything: 42
+
+model:
+  class_path: pose_estimation.pl_wrappers.egoposeformer.Pose3DMVFEXLightningModel
+  init_args:
+    model_cfg:
+      num_views: 4
+      image_size:
+        - 256
+        - 256
+      camera_model: ego4view_syn
+
+      pose3d_cfg:
+        num_joints: 16
+        input_dims: 128
+        embed_dims: 128
+        mlp_dims: 1024
+        mlp_dropout: 0.0
+        num_mlp_layers: 2
+        num_former_layers: 3
+        num_pred_mlp_layers: 2
+        feat_down_stride: 4
+        norm_mlp_pred: False
+        coor_norm_max: null
+        coor_norm_min: null
+        conv_heatmap_dim_init: 32
+        use_mlp_avgpool: False
+        use_mlp_heatmap: False
+        camera_calib_file_dir_path: ./pose_estimation/utils/camera_calib_file/ego4view
+        transformer_cfg:
+          cross_attn_cfg:
+            num_heads: 4
+            batch_first: True
+          spatial_attn_cfg:
+            num_heads: 4
+            batch_first: True
+          ffn_cfg:
+            feedforward_dims: 512
+            num_fcs: 2
+            ffn_drop: 0.0
+      heatmap_mvf_cfg:
+        num_heatmap: 15
+        feat_down_stride: 4
+        heatmap_threshold: 0.5
+        full_training: True
+        detach_heatmap_feat: True
+        detach_heatmap_feat_init: True
+        use_pred_heatmap_init: True
+        encoder_cfg:
+          resnet_cfg:
+            model_name: resnet18
+            out_stride: 4
+            use_imagenet_pretrain: True
+          neck_cfg:
+            in_channels:
+              - 64
+              - 128
+              - 256
+              - 512
+            out_channels: 128
+        mvf_cfg:
+          input_dims: 128
+          embed_dims: 256
+          num_former_layers: 1
+          joint_query_adaptation: True
+          mvf_transformer_cfg:
+            cross_attn_cfg:
+              num_heads: 4
+              batch_first: True
+            spatial_attn_cfg:
+              num_heads: 4
+              batch_first: True
+            ffn_cfg:
+              feedforward_dims: 512
+              num_fcs: 2
+              ffn_drop: 0.0
+    dataset_type: ego4view_syn_pose3d
+    dataset_kwargs: {
+      camera_pos: all
+    }
+    data_root: /CT/Ego4View/static00/Ego4View_syn
+    pose_relative_type: device
+    lr: 0.001
+    weight_decay: 0.0005
+    lr_decay_epochs:
+      - 8
+      - 10
+    warmup_iters: 500
+    encoder_lr_scale: 1.0
+    w_mpjpe: 0.1
+    w_heatmap: 10.0
+    batch_size: 32
+    workers: 16
+    compile: True
+    compile_mode: default
+    save_result: False
+    heatmap_estimator_mvf_pretrained: ./logs/ego4view_syn_heatmap_mvfex-n1_jqa/lightning_logs/version_0/checkpoints/epoch=11.ckpt
+
+trainer:
+  max_epochs: 12
+  check_val_every_n_epoch: 1
+  log_every_n_steps: 400
+  devices: 1
+  benchmark: true
+  precision: 32
+  gradient_clip_val: 5.0
+  gradient_clip_algorithm: norm
+  callbacks:
+    - class_path: pytorch_lightning.callbacks.TQDMProgressBar
+      init_args:
+        refresh_rate: 400
+    - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+      init_args:
+        every_n_epochs: 1
+        save_top_k: -1
+        filename: '{epoch}'
+  logger:
+    - class_path: pytorch_lightning.loggers.CSVLogger
+      init_args:
+        save_dir: ./logs/ego4view_syn_pose3d

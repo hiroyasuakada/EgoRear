@@ -82,7 +82,7 @@ Our camera calibration file is also available [here](https://github.com/hiroyasu
 
   Please install other dependencies:
     
-    pip install -r requirements.txt  
+          pip install -r requirements.txt  
 
 ## Training
 

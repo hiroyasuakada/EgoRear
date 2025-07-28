@@ -122,15 +122,12 @@ Our camera calibration file is also available [here](https://github.com/hiroyasu
 # Implementation for Egocentric 3D Pose Estimation
 
 ## Dependencies 
-
-- Python 3.10
-- Ubuntu Debian GNU/Linux 12
-- PyTorch Lightning 2.4.0
-- Cuda 11.8
-
-  Please install other dependencies:
     
-          pip install -r requirements.txt  
+      conda create -n ICCV2025 python=3.10 -y
+      source activate ICCV2025
+      pip3 install torch torchvision torchaudio lightning natsort loguru open3d opencv-python pillow numpy scipy einops timm
+      pip3 install mmcv==2.2.0 -f https://download.openmmlab.com/mmcv/dist/cu121/torch2.4/index.html
+
 
 ## Training
 
@@ -140,37 +137,37 @@ You can train the models from scratch or use [trained weights](https://drive.goo
 
 #### Training 2D Joint Heatmap Estimator
 
-        # Ego4View-Syn
-        python run.py fit --config ./configs/ego4view_syn_heatmap_stereo_front.yaml
-        python run.py fit --config ./configs/ego4view_syn_heatmap_stereo_back.yaml
+      # Ego4View-Syn
+      python run.py fit --config ./configs/ego4view_syn_heatmap_stereo_front.yaml
+      python run.py fit --config ./configs/ego4view_syn_heatmap_stereo_back.yaml
 
-        # Ego4View-RW
-        python run.py fit --config ./configs/ego4view_rw_heatmap_stereo_front.yaml
-        python run.py fit --config ./configs/ego4view_rw_heatmap_stereo_back.yaml
+      # Ego4View-RW
+      python run.py fit --config ./configs/ego4view_rw_heatmap_stereo_front.yaml
+      python run.py fit --config ./configs/ego4view_rw_heatmap_stereo_back.yaml
 
 #### Training 2D Joint Heatmap Refinement Module
 
-        # Ego4View-Syn
-        python run.py fit --config ./configs/ego4view_syn_heatmap_mvfex-n1_jqa.yaml
+      # Ego4View-Syn
+      python run.py fit --config ./configs/ego4view_syn_heatmap_mvfex-n1_jqa.yaml
 
-        # Ego4View-RW
-        python run.py fit --config ./configs/ego4view_rw_heatmap_mvfex-n1_jqa.yaml
+      # Ego4View-RW
+      python run.py fit --config ./configs/ego4view_rw_heatmap_mvfex-n1_jqa.yaml
 
 #### Training 3D Joint Estimator
         
-        # Ego4View-Syn
-        python run.py fit --config ./configs/ego4view_syn_pose3d.yaml
+      # Ego4View-Syn
+      python run.py fit --config ./configs/ego4view_syn_pose3d.yaml
         
-        # Ego4View-RW
-        python run.py fit --config ./configs/ego4view_rw_pose3d.yaml
+      # Ego4View-RW
+      python run.py fit --config ./configs/ego4view_rw_pose3d.yaml
 
 #### Testing 3D Joint Estimator
 
-        # Ego4View-Syn
-        python run.py test --config ./configs/ego4view_syn_pose3d.yaml --ckpt_path ./logs/ego4view_syn_pose3d/lightning_logs/version_0/checkpoints/epoch=11.ckpt --model.batch_size 1 --trainer.devices 1
+      # Ego4View-Syn
+      python run.py test --config ./configs/ego4view_syn_pose3d.yaml --ckpt_path ./logs/ego4view_syn_pose3d/lightning_logs/version_0/checkpoints/epoch=11.ckpt --model.batch_size 1 --trainer.devices 1
         
-        # Ego4View-RW
-        python run.py test --config ./configs/ego4view_rw_pose3d.yaml --ckpt_path ./logs/ego4view_rw_pose3d/lightning_logs/version_0/checkpoints/epoch=11.ckpt --model.batch_size 1 --trainer.devices 1
+      # Ego4View-RW
+      python run.py test --config ./configs/ego4view_rw_pose3d.yaml --ckpt_path ./logs/ego4view_rw_pose3d/lightning_logs/version_0/checkpoints/epoch=11.ckpt --model.batch_size 1 --trainer.devices 1
 
 Please change `--ckpt_path` accordingly if you train the models from scratch.
         
@@ -180,35 +177,35 @@ Please change `--ckpt_path` accordingly if you train the models from scratch.
 
 #### Training 2D Joint Heatmap Estimator
 
-        # Ego4View-Syn
-        python run.py fit --config ./configs/ego4view_syn_heatmap_stereo_front.yaml
+      # Ego4View-Syn
+      python run.py fit --config ./configs/ego4view_syn_heatmap_stereo_front.yaml
 
-        # Ego4View-RW
-        python run.py fit --config ./configs/ego4view_rw_heatmap_stereo_front.yaml
+      # Ego4View-RW
+      python run.py fit --config ./configs/ego4view_rw_heatmap_stereo_front.yaml
 
 #### Training 2D Joint Heatmap Refinement Module
 
-        # Ego4View-Syn
-        python run.py fit --config ./configs/ego4view_syn_heatmap_mvfex-n1_jqa_stereo_front.yaml
+      # Ego4View-Syn
+      python run.py fit --config ./configs/ego4view_syn_heatmap_mvfex-n1_jqa_stereo_front.yaml
 
-        # Ego4View-RW
-        python run.py fit --config ./configs/ego4view_rw_heatmap_mvfex-n1_jqa_stereo_front.yaml
+      # Ego4View-RW
+      python run.py fit --config ./configs/ego4view_rw_heatmap_mvfex-n1_jqa_stereo_front.yaml
 
 #### Training 3D Joint Estimator
         
-        # Ego4View-Syn
-        python run.py fit --config ./configs/ego4view_syn_pose3d_stereo_front.yaml
+      # Ego4View-Syn
+      python run.py fit --config ./configs/ego4view_syn_pose3d_stereo_front.yaml
         
-        # Ego4View-RW
-        python run.py fit --config ./configs/ego4view_rw_pose3d_stereo_front.yaml
+      # Ego4View-RW
+      python run.py fit --config ./configs/ego4view_rw_pose3d_stereo_front.yaml
 
 #### Testing 3D Joint Estimator
 
-        # Ego4View-Syn
-        python run.py test --config ./configs/ego4view_syn_pose3d_stereo_front.yaml --ckpt_path ./logs/ego4view_syn_pose3d_stereo_front/lightning_logs/version_0/checkpoints/epoch=11.ckpt --model.batch_size 1 --trainer.devices 1
+      # Ego4View-Syn
+      python run.py test --config ./configs/ego4view_syn_pose3d_stereo_front.yaml --ckpt_path ./logs/ego4view_syn_pose3d_stereo_front/lightning_logs/version_0/checkpoints/epoch=11.ckpt --model.batch_size 1 --trainer.devices 1
         
-        # Ego4View-RW
-        python run.py test --config ./configs/ego4view_rw_pose3d_stereo_front.yaml --ckpt_path ./logs/ego4view_rw_pose3d_stereo_front/lightning_logs/version_0/checkpoints/epoch=11.ckpt --model.batch_size 1 --trainer.devices 1
+      # Ego4View-RW
+      python run.py test --config ./configs/ego4view_rw_pose3d_stereo_front.yaml --ckpt_path ./logs/ego4view_rw_pose3d_stereo_front/lightning_logs/version_0/checkpoints/epoch=11.ckpt --model.batch_size 1 --trainer.devices 1
 
 Please change `--ckpt_path` accordingly if you train the models from scratch.
 

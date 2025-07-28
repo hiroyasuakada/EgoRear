@@ -27,9 +27,31 @@ The official implementation of our ICCV 2025 paper, "Bring Your Rear Cameras for
 
 ## Ego4View-Syn
 
-You can manually download the **Ego4View-Syn** dataset on [Edmond](https://edmond.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.TUS70H). 
+For now, you can manually download the **Ego4View-Syn** dataset on [Edmond](https://edmond.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.TUS70H). 
 
-(We will also provide the download script soon.)
+Please organize the downloaded data as follows.
+
+(We will also provide the download script that automates this process soon.)
+
+```
+Ego4View_syn
+├── test.txt
+├── train.txt
+├── validation.txt
+├── Character Name 1 (e.g., rp_aaron_posed_002)
+│   ├── Sequence ID 1 (e.g., 1001)
+│   │   ├── fisheye_rgb
+│   │	└── json_smplx_gendered
+│   │	
+│   ├── Sequence ID 2
+│   ├── Sequence ID 3
+│   └──...
+│   
+├── Character Name 2
+├── Character Name 3
+└──...
+```
+
 
 We provide metadata for each frame:
 
@@ -49,9 +71,35 @@ Our camera calibration file is also available [here](https://github.com/hiroyasu
 
 ## Ego4View-RW
 
-You can manually download the **Ego4View-RW** dataset on [Edmond](https://edmond.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.D9QKEH).
+For now, you can manually download the **Ego4View-RW** dataset on [Edmond](https://edmond.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.D9QKEH).
 
-(We will also provide the download script soon.)
+Please organize the downloaded data as follows.
+
+(We will also provide the download script that automates this process soon.)
+
+```
+Ego4View_rw
+├── test.txt
+├── train.txt
+├── validation.txt
+├── Date 1 (e.g., 2024_07_24)
+│   ├── Subject ID (e.g., S1)
+│   │   ├── Sequence ID (e.g., seq_3-0)
+│   │   │  ├── fisheye_rgb
+│   │	│  └── json_smplx
+│   │	│
+│   │   ├── Sequence ID 2
+│   │	├── Sequence ID 3
+│   │   └──...
+│   │	
+│   ├── Subject ID 2
+│   ├── Subject ID 3
+│   └──...
+│   
+├── Date 2
+├── Date 3
+└──...
+```
 
 We provide metadata for each frame:
 

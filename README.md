@@ -11,12 +11,12 @@ The official implementation of our ICCV 2025 paper, "Bring Your Rear Cameras for
 # Citation
 
 ```
-      @inproceedings{hakada2025egorear,
-      title = {Bring Your Rear Cameras for Egocentric 3D Human Pose Estimation},
-      author = {Akada, Hiroyasu and Wang, Jian and Golyanik, Vladislav and Theobalt, Christian},
-      booktitle = {International Conference on Computer Vision (ICCV)}
-      year = {2025},
-      }
+@inproceedings{hakada2025egorear,
+  title = {Bring Your Rear Cameras for Egocentric 3D Human Pose Estimation},
+  author = {Akada, Hiroyasu and Wang, Jian and Golyanik, Vladislav and Theobalt, Christian},
+  booktitle = {International Conference on Computer Vision (ICCV)}
+  year = {2025},
+}
 ```
 
 
@@ -127,8 +127,12 @@ Our camera calibration file is also available [here](https://github.com/hiroyasu
 
       conda create -n ICCV2025 python=3.10 -y
       source activate ICCV2025
-      pip3 install torch torchvision torchaudio lightning natsort loguru open3d opencv-python pillow numpy scipy einops timm
+
+      conda install nvidia/label/cuda-12.1.0::cuda-tools
+      pip3 install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu121
+      pip3 install lightning natsort loguru open3d opencv-python pillow numpy scipy einops timm
       pip3 install mmcv==2.2.0 -f https://download.openmmlab.com/mmcv/dist/cu121/torch2.4/index.html
+      pip3 install -U 'jsonargparse[signatures]>=4.27.7'
 
 
 ## Preprocessing

@@ -1,6 +1,5 @@
 # Author: Hiroyasu Akada
 
-from matplotlib.pyplot import step
 import numpy as np
 import torch
 import torch.nn as nn

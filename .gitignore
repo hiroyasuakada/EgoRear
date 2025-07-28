@@ -211,3 +211,4 @@ __marimo__/
 logs/
 scripts/
 slurm/
+download_ego4view*

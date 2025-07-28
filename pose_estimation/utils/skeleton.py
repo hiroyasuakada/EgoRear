@@ -3,8 +3,6 @@ import open3d
 from pose_estimation.utils.pose_visualization_utils import get_cylinder, get_sphere
 from scipy.io import loadmat
 import cv2
-import os
-from tqdm import tqdm
 from scipy.ndimage.filters import gaussian_filter1d
 from loguru import logger
 

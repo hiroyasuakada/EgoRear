@@ -106,7 +106,7 @@ Ego4View_rw
 We provide metadata for each frame:
 
 - **fisheye_rgb**: rgb images, jpeg, 872 × 872
-- **json_smplx**: json files with camera pose, body pose, SMPLX (EasyMocap) data
+- **json_smplx**:
     - calib_board_pose: transformation matrix (in meters) of the calibration board attached to the HMD device in the Blender global coordinate system
     - camera_pose: transformation matrix (in meters) of the cameras attached to the HMD device in the Blender global coordinate system
     - global_rot_blender: rotations (in radians) in the Blender global coordinate system

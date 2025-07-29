@@ -137,7 +137,7 @@ Our camera calibration file is also available [here](https://github.com/hiroyasu
 
 ## Preprocessing
 
-You need to generate 2D joint heatmaps as NPY files with the following commands.
+You can generate 2D joint heatmaps as NPY files for faster data loading with the following commands.
 
       # Ego4View-Syn
       python generate_heatmap.py --data_dir_path [path to Ego4View_syn] --dataset_type syn
@@ -145,6 +145,7 @@ You need to generate 2D joint heatmaps as NPY files with the following commands.
       # Ego4View-RW
       python generate_heatmap.py --data_dir_path [path to Ego4View_rw] --dataset_type rw
 
+If you don't have enough free space and can't generate NPY files, you can alternatively modify the logic in the dataloaders with the `generate_target` function in the `generate_heatmap.py` to pass ground truths of 2D joint heatmaps to the models.
 
 ## Training
 

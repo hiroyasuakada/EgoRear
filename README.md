@@ -58,7 +58,7 @@ Ego4View_syn
 We provide metadata for each frame:
 
 - **fisheye_rgb**: rgb images, jpeg, 872 × 872
-- **json_smplx_gendered**: json files with camera pose, body pose, SMPLX (EasyMocap) data
+- **json_smplx_gendered**:
     - global_trans_blender: translations (in meters) of the device and cameras in the Blender global coordinate system
     - global_rot_blender: rotations (in radians) in the Blender global coordinate system
     - smplx_params: SMPL-X parameters (gendered version)

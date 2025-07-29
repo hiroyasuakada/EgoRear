@@ -29,7 +29,7 @@ The official implementation of our ICCV 2025 paper, "Bring Your Rear Cameras for
 
 ## Ego4View-Syn
 
-For now, you can manually download the **Ego4View-Syn** dataset on [Edmond](https://edmond.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.TUS70H).
+For now, you can manually download the **Ego4View-Syn** dataset (~450GB) on [Edmond](https://edmond.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.TUS70H).
 
 Please unzip and organize the downloaded data as follows.
 
@@ -73,7 +73,7 @@ Our camera calibration file is also available [here](https://github.com/hiroyasu
 
 ## Ego4View-RW
 
-For now, you can manually download the **Ego4View-RW** dataset on [Edmond](https://edmond.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.D9QKEH).
+For now, you can manually download the **Ego4View-RW** dataset (~640GB) on [Edmond](https://edmond.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.D9QKEH).
 
 Please unzip and organize the downloaded data as follows.
 
@@ -137,7 +137,7 @@ Our camera calibration file is also available [here](https://github.com/hiroyasu
 
 ## Preprocessing
 
-You need to generate 2D joint heatmaps with the following commands.
+You need to generate 2D joint heatmaps as NPY files with the following commands.
 
       # Ego4View-Syn
       python generate_heatmap.py --data_dir_path [path to Ego4View_syn] --dataset_type syn

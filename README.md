@@ -145,7 +145,7 @@ You can generate 2D joint heatmaps as NPY files for faster data loading with the
       # Ego4View-RW
       python generate_heatmap.py --data_dir_path [path to Ego4View_rw] --dataset_type rw
 
-If you don't have enough free space and can't generate NPY files, you can alternatively modify the logic in the dataloaders with the `generate_target` function in the `generate_heatmap.py` to pass ground truths of 2D joint heatmaps to the models.
+If you don't have enough free space and can't generate NPY files, you can alternatively pass ground truths of 2D joint heatmaps to the models by modifying the logic in the dataloaders with the `generate_target` function in the `generate_heatmap.py`.
 
 ## Training
 

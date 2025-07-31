@@ -125,8 +125,8 @@ Our camera calibration file is also available [here](https://github.com/hiroyasu
 
 ## Dependencies
 
-      conda create -n ego4view python=3.10 -y
-      source activate ego4view
+      conda create -n egorear python=3.10 -y
+      source activate egorear
 
       conda install nvidia/label/cuda-12.1.0::cuda-tools
       pip3 install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu121

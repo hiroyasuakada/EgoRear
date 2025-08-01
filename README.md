@@ -1,7 +1,7 @@
 # EgoRear (ICCV 2025)
 The official implementation of our ICCV 2025 paper, "Bring Your Rear Cameras for Egocentric 3D Human Pose Estimation".
 
-![img](assets/teaser.jpg)
+![img](assets/teaser.png)
 
 **For any questions, please contact the first author, Hiroyasu Akada [hakada@mpi-inf.mpg.de] .**
 
